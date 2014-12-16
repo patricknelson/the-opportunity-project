@@ -1,0 +1,47 @@
+{% if site.sections %}
+
+{% for project in site.sections %}
+
+<section class="second container-wrapper measured" id="{{project.nicename}}-container">
+    <div class="backdrop container-fluid">
+      <div class="container">
+        <div class="text">
+          <h1><img src="images/meet-{{project.nicename}}.png" alt="Meet {{project.name}}"></h1>
+          <p>{{project.content}}</p>
+        </div>
+        
+          {% if project.bubbles %}
+        <ul class="bubbles">
+            {% for bubble in project.bubbles %}
+            {% if bubble.video %}
+            <li><a class="bubble bubble-{{forloop.index}}" data-target="{{project.nicename}}-player" data-video="{{bubble.video}}">
+            {% else %}
+            <li><a class="bubble bubble-{{forloop.index}}" data-target="#{{project.nicename}}-slideshow" data-slideshow="{{bubble.slideshow}}">
+              {% endif %}
+            <div class="align">
+              <h4>{{bubble.header}}</h4>
+              <p>{{bubble.subhead}}</p>
+              <p><img src="images/{{bubble.button}}.png" alt="{{bubble.button}}" class="{{bubble.button}}"></p>
+            </div>
+          </a></li>
+            {% endfor %}
+        </ul>
+          {% endif %}
+
+        <div class="video-container" id="{{project.nicename}}-player">
+
+        </div>
+
+        <div class="close--button"></div>
+
+        <div class="slideshow-container" id="{{project.nicename}}-slideshow">
+
+        </div>
+
+      </div>
+    </div>
+</section>
+
+{% endfor %}
+    
+    {% endif %}

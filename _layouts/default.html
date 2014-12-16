@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+    <body data-spy="scroll" data-target="#side-nav">
+        
+        <div class="the-op">
+            
+            <div class="the-nav">
+                <nav id="side-nav">
+                    {% if site.sections %}
+                  <ul class="nav nav-pills nav-stacked navbar-side">
+                      <li><a class="explore" href="#intro-container"><label><img id="explore-image" src="images/explore.png" alt="Explore"></label></a></li>
+                      {% for project in site.sections %}
+                      <li><a class="{{project.nicename}}" href="#{{project.nicename}}-container"><img src="images/{{project.nicename}}-name.png" alt="{{project.name}}"></a></li>
+                      {% endfor %}
+                      <li><a class="share" href="javascript: void(0);"><img src="images/share-button.png" alt="Share"></a></li>
+                  </ul>
+                    {% endif %}
+                </nav>
+            </div>
+            
+            {{ content }}
+            
+        </div>
+        
+        <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="vendor/flexslider/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
+    </body>
+</html>
