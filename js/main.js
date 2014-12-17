@@ -406,7 +406,7 @@ function onYouTubeIframeAPIReady() {
           }
         });
 
-        $(window).on('resize', getSectionMiddles);
+        //$(window).on('resize', getSectionMiddles);
 
 
       })();

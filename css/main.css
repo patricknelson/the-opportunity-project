@@ -457,6 +457,7 @@ a, a:link, a:hover, a:active, a:visited {
 
 .container-wrapper.entered .bubble {
     background-size: cover !important;
+    background-position: center center !important;
   width: 110px !important;
   height: 110px !important;
   left: 0px !important;
@@ -561,7 +562,7 @@ a.bubble:visited {
   font-size: 12px;
   font-weight: 500;
   text-align: center;
-  padding-bottom: .7em;
+  padding-bottom: .2em;
 
   margin: 0 20%;
 }
@@ -577,7 +578,7 @@ a.bubble:visited {
 }
 
 .entered .bubble h4 {
-  font-size: 6px;
+  font-size: 9px;
 }
 
 .entered .bubble p {

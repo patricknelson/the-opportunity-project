@@ -2,7 +2,7 @@
 nicename: kolabo
 name: Kolabo
 bubbles:
-  - header: The Story of the Opportunity Project and Kolabo
+  - header: "The Story of the Opportunity Project and&nbsp;Kolabo"
     subhead: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum efficitur massa
     button: play
     video: mT-gFt0Uj_Y
