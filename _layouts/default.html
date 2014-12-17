@@ -3,21 +3,28 @@
 
   {% include head.html %}
 
-    <body data-spy="scroll" data-target="#side-nav">
+    <body data-spy="scroll" data-target="#side-nav" data-offset="120">
         
         <div class="the-op">
             
             <div class="the-nav">
                 <nav id="side-nav">
                     {% if site.sections %}
-                  <ul class="nav nav-pills nav-stacked navbar-side">
+                  <ul id="actual-nav" class="nav nav-pills nav-stacked navbar-side">
                       <li><a class="explore" href="#intro-container"><label><img id="explore-image" src="images/explore.png" alt="Explore"></label></a></li>
                       {% for project in site.sections %}
-                      <li><a class="{{project.nicename}}" href="#{{project.nicename}}-container"><img src="images/{{project.nicename}}-name.png" alt="{{project.name}}"></a></li>
+                      <li>
+                            <a class="{{project.nicename}}" href="#{{project.nicename}}-container">
+                                <div class="align">
+                                <img src="images/{{project.nicename}}-name.png" alt="{{project.name}}">
+                                </div>
+                            </a>
+
+                      </li>
                       {% endfor %}
-                      <li><a class="share" href="javascript: void(0);"><img src="images/share-button.png" alt="Share"></a></li>
                   </ul>
                     {% endif %}
+                    <button class="share" class="st_sharethis" st_url="http://www.ebayinc.com/social-innovation/top" st_title="The Opportunity Project" displayText="Share this awesome page"><img src="images/share-button.png" alt="Share"></button>
                 </nav>
             </div>
             
@@ -28,6 +35,10 @@
         <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="vendor/flexslider/jquery.flexslider-min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+
+         <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "e850b1cd-2b87-4487-84d7-8cd77e998eed", doNotHash: true, doNotCopy: true, hashAddressBar: false, onhover:false});</script>
+
 
     </body>
 </html>

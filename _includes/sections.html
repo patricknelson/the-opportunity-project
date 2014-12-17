@@ -5,9 +5,9 @@
 <section class="second container-wrapper measured" id="{{project.nicename}}-container">
     <div class="backdrop container-fluid">
       <div class="container">
-        <div class="text">
+        <div class="text"> 
           <h1><img src="images/meet-{{project.nicename}}.png" alt="Meet {{project.name}}"></h1>
-          <p>{{project.content}}</p>
+          {{project.content}}
         </div>
         
           {% if project.bubbles %}
@@ -20,7 +20,7 @@
               {% endif %}
             <div class="align">
               <h4>{{bubble.header}}</h4>
-              <p>{{bubble.subhead}}</p>
+              <!--p>{{bubble.subhead}}</p-->
               <p><img src="images/{{bubble.button}}.png" alt="{{bubble.button}}" class="{{bubble.button}}"></p>
             </div>
           </a></li>

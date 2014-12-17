@@ -24,4 +24,6 @@ bubbles:
     slideshow: slideshowUcup
 ---
 
-After years of working as a craftsman for a well-known handbag designer, Ucup decided to put his skills and experience to work building his own business. Now totaling ten employees, <a href="http://upycollection.com/" target="_blank">Upy Collection</a> produces genuine leather bags that also feature local Indonesian weaving styles. See how they're made.
+<p>After years of working as a craftsman for a well-known handbag designer, Ucup decided to put his skills and experience to work building his own business. Now totaling ten employees, <a href="http://upycollection.com/" target="_blank">Upy Collection</a> produces genuine leather bags that also feature local Indonesian weaving styles.</p>
+
+<p class="slideshow-only">Traveling far distances, through Jakarta's heavy traffic, Ucup's impact extends far beyond his immediate village.</p>

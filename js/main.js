@@ -44,19 +44,16 @@ function onYouTubeIframeAPIReady() {
 
       function placeVideo(container, videoID) {
         destroyVideo();
-        window.setTimeout(function() {
 
-
-          player = new YT.Player(container, {
-            height: '540',
-            width: '870',
-            videoId: videoID,
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
-          });
-        }, 500);
+      player = new YT.Player(container, {
+        height: '540',
+        width: '870',
+        videoId: videoID,
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
       }
 
       function activateBubble(sel, deactivate, section) {
