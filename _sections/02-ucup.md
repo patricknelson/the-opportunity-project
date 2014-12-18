@@ -5,19 +5,19 @@ bubbles:
   - header: The Story of Upy Collection
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: sSIe7MOLo20
   - header: Delivery by Motorbike
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: AKi5b9cFpOM
   - header: Ucup's Workshop
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: UYg5Na9l8Vw 
   - header: A Visit to the Tannery
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: nPypogRyBL4
   - header: Ucup's Weekly Route
     subhead: See how Syariah's snacks are made
     button: map

@@ -5,19 +5,19 @@ bubbles:
   - header: The Story of Sumber Rizki
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: p7hZ4TiVAzM 
   - header: It Takes a Village
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: 1kVEDc2avMQ
   - header: How to Make Seaweed Snacks
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: AKi5b9cFpOM 
   - header: Starting the Business
     subhead: See how Syariah's snacks are made
     button: play
-    video: mT-gFt0Uj_Y
+    video: ZH2SbFSv52A
   - header: Scenes from Syariah's Village
     subhead: See how Syariah's snacks are made
     button: slideshow
