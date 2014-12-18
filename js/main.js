@@ -16,8 +16,21 @@ function onYouTubeIframeAPIReady() {
   var player;
   var slideshowImages = {
     slideshow2: [
-      'slideshow/1.jpg',
-      'slideshow/ucup-1.jpg'
+      'slideshow/syariah_slide_1.jpg',
+      'slideshow/syariah_slide_2.jpg',
+      'slideshow/syariah_slide_3.jpg',
+      'slideshow/syariah_slide_4.jpg',
+      'slideshow/syariah_slide_5.jpg',
+      'slideshow/syariah_slide_6.jpg',
+      'slideshow/syariah_slide_7.jpg',
+      'slideshow/syariah_slide_8.jpg',
+      'slideshow/syariah_slide_9.jpg',
+      'slideshow/syariah_slide_10.jpg',
+      'slideshow/syariah_slide_11.jpg',
+      'slideshow/syariah_slide_12.jpg',
+      'slideshow/syariah_slide_13.jpg',
+      'slideshow/syariah_slide_14.jpg',
+      'slideshow/syariah_slide_15.jpg'
     ],
     slideshowUcup: [
       'slideshow/ucup-1.jpg'

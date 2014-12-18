@@ -9,7 +9,7 @@ bubbles:
   - header: Creating New Jobs   
     subhead: See how Syariah's snacks are made
     button: play
-    video: AKi5b9cFpOM
+    video: iEXU0FHPEW8
   - header: The Art of Silversmithing
     subhead: See how Syariah's snacks are made
     button: play
