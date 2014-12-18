@@ -136,8 +136,8 @@ outline: 0;
 }
 
 .kolabo {
-  background-image: url('../images/kolabo.png');
-  background-position: center -15px;
+  background-image: url('../images/kolabo.jpg');
+  background-position: center center;
 }
 
 .ucup {
@@ -332,9 +332,9 @@ body {
 /* ` */
 
 #kolabo-container .bubble-1 {
-  background-image: url('../images/kolabo.png');
-    background-size: 500px;
-  background-position: 29% -20px;
+  background-image: url('../images/kolabo.jpg');
+    background-size: cover;
+  background-position: center center;
   
 }
 
