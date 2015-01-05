@@ -5,13 +5,10 @@
 <section class="second container-wrapper measured" id="{{project.nicename}}-container">
     <div class="backdrop container-fluid">
       <div class="container">
-        <div class="text"> 
-          <h1><img src="images/meet-{{project.nicename}}.png" alt="Meet {{project.name}}"></h1>
-          {{project.content}}
-        </div>
-        
+
           {% if project.bubbles %}
-        <ul class="bubbles">
+          <div class="{% if project.bubbles.size > 1 %}flexslider {% endif %}bubbles-wrapper">
+        <ul class="bubbles slides">
             {% for bubble in project.bubbles %}
             {% if bubble.video %}
             <li><a class="bubble bubble-{{forloop.index}}" data-target="{{project.nicename}}-player" data-video="{{bubble.video}}">
@@ -21,12 +18,24 @@
             <div class="align">
               <h4>{{bubble.header}}</h4>
               <!--p>{{bubble.subhead}}</p-->
-              <p><img src="images/{{bubble.button}}.png" alt="{{bubble.button}}" class="{{bubble.button}}"></p>
+              <p><img src="images/{{bubble.button}}.png" alt="{{bubble.button}}" class="{{bubble.button}} hidden-xs"></p>
+              <p class="no-margin"><img src="images/mobile-play.png" alt="{{bubble.button}}" class="play-button {{bubble.button}} visible-xs"></p> 
             </div>
           </a></li>
             {% endfor %}
         </ul>
+          </div>
           {% endif %}
+
+          <div class="text">
+            {% if project.nicename == 'kolabo' %}
+            <h1><img src="images/meet-{{project.nicename}}.png" alt="Meet {{project.name}}" class="hidden-xs"></h1>
+            <h1><img src="images/meet-{{project.nicename}}-mobile.png" alt="Meet {{project.name}}" class="visible-xs"></h1>
+            {% else %}
+            <h1><img src="images/meet-{{project.nicename}}.png" alt="Meet {{project.name}}"></h1>
+            {% endif %}
+            {{project.content}}
+          </div>
 
         <div class="video-container" id="{{project.nicename}}-player">
 
@@ -43,5 +52,5 @@
 </section>
 
 {% endfor %}
-    
+
     {% endif %}

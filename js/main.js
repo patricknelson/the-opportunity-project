@@ -176,7 +176,7 @@ function onYouTubeIframeAPIReady() {
 
       function initiateSlideshow(ctx, section) {
         $(section).addClass('slideshow');
-        $('.flexslider', ctx).flexslider({
+        $('.flexslider', ctx).not('.bubbles-wrapper').flexslider({
           controlNav: false,
           prevText: "",
           nextText: "",
@@ -382,7 +382,7 @@ function onYouTubeIframeAPIReady() {
           newYPosition += "px";
 
           $('.the-nav').css('top', newYPosition).css('position', 'absolute');
-          
+
           */
 
         });
@@ -424,8 +424,25 @@ function onYouTubeIframeAPIReady() {
 
       })();
 
-  }); //end jquery block
+      function isMobile() {
+        return $('.visible-xs:visible').length > 0;
+      }
 
+      if ($('.bubbles-wrapper') && isMobile()) {
+        $('.bubbles-wrapper.flexslider').flexslider({
+          controlNav: false,
+          selector: '.bubbles li',
+          prevText: "",
+          nextText: "",
+          animation: "slide",
+          slideshow: false,
+          startAt: 3
+//          itemWidth: 270,
+          //itemMargin: 0
+        });
+      }
+
+  }); //end jquery block
 
 
 } // End YouTube block
