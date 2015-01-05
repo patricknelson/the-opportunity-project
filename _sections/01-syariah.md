@@ -6,14 +6,14 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: p7hZ4TiVAzM
-  - header: How to Make Seaweed Snacks
-    subhead: See how Syariah's snacks are made
-    button: play
-    video: AKi5b9cFpOM
   - header: Starting the Business
     subhead: See how Syariah's snacks are made
     button: play
     video: ZH2SbFSv52A
+  - header: How to Make Seaweed Snacks
+    subhead: See how Syariah's snacks are made
+    button: play
+    video: AKi5b9cFpOM
   - header: It Takes a Village
     subhead: See how Syariah's snacks are made
     button: play

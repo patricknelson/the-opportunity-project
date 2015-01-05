@@ -6,14 +6,14 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: Y6M9pSlCoP0
-  - header: The Art of Silversmithing
-    subhead: See how Syariah's snacks are made
-    button: play
-    video: JR4RDxYyk4g
   - header: A Trip to the Jewel Market
     subhead: See how Syariah's snacks are made
     button: play
     video: sSIe7MOLo20
+  - header: The Art of Silversmithing
+    subhead: See how Syariah's snacks are made
+    button: play
+    video: JR4RDxYyk4g
   - header: Creating New Jobs
     subhead: See how Syariah's snacks are made
     button: play

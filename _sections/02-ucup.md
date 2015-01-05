@@ -6,10 +6,6 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: X2vU5cAKZKM
-  - header: Delivery by Motorbike
-    subhead: See how Syariah's snacks are made
-    button: play
-    video: iHalRkYze1I
   - header: A Visit to the Tannery
     subhead: See how Syariah's snacks are made
     button: play
@@ -18,6 +14,10 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: UYg5Na9l8Vw
+  - header: Delivery by Motorbike
+    subhead: See how Syariah's snacks are made
+    button: play
+    video: iHalRkYze1I
   - header: Ucup's Weekly Route
     subhead: See how Syariah's snacks are made
     button: map
