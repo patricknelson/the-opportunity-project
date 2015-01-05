@@ -428,19 +428,47 @@ function onYouTubeIframeAPIReady() {
         return $('.visible-xs:visible').length > 0;
       }
 
-      if ($('.bubbles-wrapper') && isMobile()) {
-        $('.bubbles-wrapper.flexslider').flexslider({
-          controlNav: false,
-          selector: '.bubbles li',
-          prevText: "",
-          nextText: "",
-          animation: "slide",
-          slideshow: false,
-          startAt: 3
-//          itemWidth: 270,
-          //itemMargin: 0
+      function setupMobileSlider() {
+        if (!isMobile()) return;
+
+        $('body').click(function() {
+          $('#side-nav').removeClass('shown');
         });
+
+        $('.the-nav').click(function(e) {
+          e.stopPropagation();
+          $('#side-nav').toggleClass('shown');
+        });
+
+        if ($('.bubbles-wrapper')) {
+          $('.bubbles-wrapper.bubble-slider').flexslider({
+            controlNav: false,
+            selector: '.bubbles li',
+            prevText: "",
+            nextText: "",
+            animation: "slide",
+            slideshow: false,
+            startAt: 3
+  //          itemWidth: 270,
+            //itemMargin: 0
+          });
+        }
+
       }
+
+      var wasMobile = isMobile();
+
+      $(window).resize(function() {
+
+        if (!wasMobile) return;
+        $('.bubble-slider').addClass('flexslider');
+        var bubbles = $('.bubble');
+        var width = bubbles.css('width');
+        console.log(width);
+        bubbles.css('height', width);
+      });
+
+      setupMobileSlider();
 
   }); //end jquery block
 

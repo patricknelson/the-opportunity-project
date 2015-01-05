@@ -7,7 +7,7 @@
       <div class="container">
 
           {% if project.bubbles %}
-          <div class="{% if project.bubbles.size > 1 %}flexslider {% endif %}bubbles-wrapper">
+          <div class="{% if project.bubbles.size > 1 %}bubble-slider {% endif %}bubbles-wrapper">
         <ul class="bubbles slides">
             {% for bubble in project.bubbles %}
             {% if bubble.video %}
@@ -19,7 +19,7 @@
               <h4>{{bubble.header}}</h4>
               <!--p>{{bubble.subhead}}</p-->
               <p><img src="images/{{bubble.button}}.png" alt="{{bubble.button}}" class="{{bubble.button}} hidden-xs"></p>
-              <p class="no-margin"><img src="images/mobile-play.png" alt="{{bubble.button}}" class="play-button {{bubble.button}} visible-xs"></p> 
+              <p class="no-margin"><img src="images/mobile-play.png" alt="{{bubble.button}}" class="play-button {{bubble.button}} visible-xs"></p>
             </div>
           </a></li>
             {% endfor %}

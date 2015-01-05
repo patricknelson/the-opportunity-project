@@ -6,10 +6,6 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: Y6M9pSlCoP0
-  - header: Creating New Jobs   
-    subhead: See how Syariah's snacks are made
-    button: play
-    video: iEXU0FHPEW8
   - header: The Art of Silversmithing
     subhead: See how Syariah's snacks are made
     button: play
@@ -18,6 +14,10 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: sSIe7MOLo20
+  - header: Creating New Jobs
+    subhead: See how Syariah's snacks are made
+    button: play
+    video: iEXU0FHPEW8
   - header: Megi's Sketchbook
     subhead: See how Syariah's snacks are made
     button: slideshow

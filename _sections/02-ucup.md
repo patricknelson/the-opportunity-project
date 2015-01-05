@@ -10,14 +10,14 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: iHalRkYze1I
-  - header: Ucup's Workshop
-    subhead: See how Syariah's snacks are made
-    button: play
-    video: UYg5Na9l8Vw 
   - header: A Visit to the Tannery
     subhead: See how Syariah's snacks are made
     button: play
     video: nPypogRyBL4
+  - header: Ucup's Workshop
+    subhead: See how Syariah's snacks are made
+    button: play
+    video: UYg5Na9l8Vw
   - header: Ucup's Weekly Route
     subhead: See how Syariah's snacks are made
     button: map
