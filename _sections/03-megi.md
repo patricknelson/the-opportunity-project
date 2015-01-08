@@ -10,7 +10,7 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: sSIe7MOLo20
-  - header: The Art of Silversmithing
+  - header: The Art of Silver-smithing
     subhead: See how Syariah's snacks are made
     button: play
     video: JR4RDxYyk4g

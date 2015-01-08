@@ -9,7 +9,7 @@ body {
 }
 
 .container-fluid {
-  height: 644px;
+  height: 664px;
   color: white;
   position: relative;
 }
@@ -25,7 +25,7 @@ body {
 
 h1 {
   text-align: center;
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .container p {
@@ -88,8 +88,8 @@ h1 {
   line-height: 67px;
   font-weight: 500;
   padding: 0px;
-    background-size: 135px;
-    background-repeat: no-repeat;
+  background-size: 135px;
+  background-repeat: no-repeat;
 }
 
 .the-nav .nav li > a.explore,
@@ -102,10 +102,10 @@ button.share:focus {
   border-radius: 0px;
   line-height: 45px;
   text-indent: 0px !important;
-     -webkit-box-shadow: none;
--moz-box-shadow: none;
-box-shadow: none;
-outline: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
 }
 
 .the-nav .nav li > a.share {
@@ -138,25 +138,27 @@ outline: 0;
 }
 
 .kolabo {
-background-image: url('../images/kolabo.jpg');
-background-position: center;
-background-size: 70px !important;
+  background-image: url('../images/kolabo.jpg');
+  background-position: center;
+  background-size: 70px !important;
 }
 
 .ucup {
   background-image: url('../images/ucup-bubble-1.jpg');
   background-size: 105px;
-    background-position: -22px 0px;
+  background-position: -22px 0px;
 }
 
 .megi {
   background-image: url('../images/megi-bubble-1.jpg');
- background-position: -27px 0px;
+  background-position: -27px 0px;
 }
 
 .syariah {
   background-image: url('../images/syar-bubble-1.jpg');
-  background-position: -37px 0px;
+  background-position: center center;
+  background-size: cover !important;
+
 }
 
 body {
@@ -177,6 +179,10 @@ body {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+#kolabo-container {
+  background-image: url('../images/kolabo-bg.jpg');
 }
 
 #syariah-container {
@@ -243,7 +249,7 @@ body {
 }
 
 .bubble-5 {
-  background-image: url('../images/syariah-bubble-5.png');/*url('../images/syar-bubble-5.jpg');*/
+  background-image: url('../images/syar-bubble-5.jpg');
   top: 332px;
   left: 555px;
 }
@@ -253,7 +259,7 @@ body {
 #ucup-container .bubble-1 {
   background-image: url('../images/ucup-bubble-1.jpg');
   background-position: -130px 0px;
-    background-size: 700px;
+  background-size: 700px;
 }
 
 #ucup-container .bubble-5 {
@@ -295,7 +301,7 @@ body {
 #megi-container .bubble-1 {
   background-image: url('../images/megi-bubble-1.jpg');
   background-position: -94px 0px;
-    background-size: 600px;
+  background-size: 600px;
 }
 
 #megi-container .bubble-5 {
@@ -336,18 +342,18 @@ body {
 
 #kolabo-container .bubble-1 {
   background-image: url('../images/kolabo.jpg');
-    background-size: cover;
+  background-size: cover;
   background-position: center center;
 
 }
 
 /*
 #kolabo-container, #kolabo-container .container-fluid {
-  height: 490px;
+height: 490px;
 }
 
 #kolabo-container .container {
-  height: 448px;
+height: 448px;
 }*/
 
 #kolabo-container .bubble-1 h4 {
@@ -358,13 +364,13 @@ body {
   width: 470px;
   top: 77px;
   left: 360px;
-  color: #796e65;
+  color: white;
 }
 /*
 #kolabo-container.entered .text {
-  top: 0px;
-  left: 0px;
-  width: 110px;
+top: 0px;
+left: 0px;
+width: 110px;
 }
 */
 
@@ -386,6 +392,13 @@ body {
   margin-top: 0;
 }
 
+@media (min-width: 1000px) {
+  #kolabo-container .container-fluid .container {
+    height: 542px;
+    margin-top: 102px;
+  }
+}
+
 .bubble {
   position: absolute;
   text-indent: -5000px;
@@ -397,8 +410,31 @@ body {
   margin 500ms ease-out 0s,
   height 500ms ease-out 0s,
   width 500ms ease-out 0s;
-  /*-moz-transition: background-color 500ms ease-out 1s;
-  -o-transition: background-color 500ms ease-out 1s;*/
+
+  -ms-transition: position 500ms ease-out 0s,
+  display 500ms ease-out 0s,
+  top 500ms ease-out 0s,
+  left 500ms ease-out 0s,
+  margin 500ms ease-out 0s,
+  height 500ms ease-out 0s,
+  width 500ms ease-out 0s;
+
+  -o-transition: position 500ms ease-out 0s,
+  display 500ms ease-out 0s,
+  top 500ms ease-out 0s,
+  left 500ms ease-out 0s,
+  margin 500ms ease-out 0s,
+  height 500ms ease-out 0s,
+  width 500ms ease-out 0s;
+
+  -moz-transition: position 500ms ease-out 0s,
+  display 500ms ease-out 0s,
+  top 500ms ease-out 0s,
+  left 500ms ease-out 0s,
+  margin 500ms ease-out 0s,
+  height 500ms ease-out 0s,
+  width 500ms ease-out 0s;
+
   transition: position 500ms ease-out 0s,
   display 500ms ease-out 0s,
   top 500ms ease-out 0s,
@@ -467,8 +503,8 @@ a, a:link, a:hover, a:active, a:visited {
 }
 
 .container-wrapper.entered .bubble {
-    background-size: cover !important;
-    background-position: center center !important;
+  background-size: cover !important;
+  background-position: center center !important;
   width: 110px !important;
   height: 110px !important;
   left: 0px !important;
@@ -510,8 +546,8 @@ a, a:link, a:hover, a:active, a:visited {
 }
 
 #kolabo-container.entered .bubble-1 {
-    /*top: 45px !important;*/
-    top: 0px !important;
+  /*top: 45px !important;*/
+  top: 0px !important;
 }
 
 .container-wrapper.entered .bubble-2 {
@@ -571,7 +607,7 @@ a.bubble:visited {
 .bubble h4 {
   text-transform: uppercase;
   color: #0064d2;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   text-align: center;
   padding-bottom: .2em;
@@ -600,11 +636,11 @@ a.bubble:visited {
 
 /*
 .bubble p img {
-  max-width: 36%;
+max-width: 36%;
 }
 
 .bubble p img.play {
-  max-width: 25%;
+max-width: 25%;
 }
 */
 
@@ -657,7 +693,7 @@ a.bubble:visited {
 }
 
 #kolabo-container.entered .backdrop {
-    background: transparent;
+  background: transparent;
 }
 
 @media (min-width: 992px) {
@@ -683,14 +719,14 @@ a.bubble:visited {
   }
 
   #ucup-container .flexslider .slides > li .the-image {
-   width: 970px;
+    width: 970px;
   }
 }
 
 @media (min-width: 1200px) {
 
-    #ucup-container .flexslider .slides > li .the-image {
-   width: 1050px;
+  #ucup-container .flexslider .slides > li .the-image {
+    width: 1050px;
   }
 
   .the-op .container {
@@ -795,16 +831,38 @@ a.bubble:visited {
 }
 
 #kolabo-player {
-    /*height: 400px;*/
+  /*height: 400px;*/
 }
 
 #ucup-container .flexslider .slides > li .the-image {
-    background-size: 100%;
-    background-position: 0 70%;
+  background-size: 100%;
+  background-position: 0 70%;
 }
 
 .intro-logos img {
   margin: 0 auto;
+}
+
+.back-to-top {
+  display: block;
+  background-image: url('../images/back-to-top.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 38px;
+  height: 60px;
+  text-indent: -5000px;
+  position: absolute;
+  left: 50%;
+  margin-left: -19px;
+  bottom: 24px;
+}
+
+#syariah-container .bubble-4 {
+  background-position:center right;
+}
+
+#syariah-container .bubble-1 {
+  background-size: cover;
 }
 
 @media (max-width: 768px) {
@@ -829,11 +887,13 @@ a.bubble:visited {
   #ucup-container .bubbles-wrapper .bubbles .bubble,
   #kolabo-container .bubbles-wrapper .bubbles .bubble,
   #syariah-container .bubbles-wrapper .bubbles .bubble {
-    width: 96% !important;
-    height: 303px !important;
+    width: 96%;
+    height: 303px;
     position: static;
     margin: 0 auto;
   }
+
+
 
   .bubbles-wrapper .flex-viewport {
     overflow: visible !important;
@@ -856,20 +916,21 @@ a.bubble:visited {
   .bubbles-wrapper .flex-direction-nav a.flex-next,
   .bubbles-wrapper .flex-direction-nav a.flex-prev {
     top: 30px;
+    z-index: 1;
   }
 
   .bubbles-wrapper a.flex-next {
     right: 50% !important;
-    -ms-transform: translate(22px,0px);
-    -webkit-transform: translate(22px,0px);
-    transform: translate(22px,0px);
+    -ms-transform: translate(42px,0px);
+    -webkit-transform: translate(42px,0px);
+    transform: translate(42px,0px);
   }
 
   .bubbles-wrapper a.flex-prev {
     left: 50% !important;
-    -ms-transform: translate(-22px,0px);
-    -webkit-transform: translate(-22px,0px);
-    transform: translate(-22px,0px);
+    -ms-transform: translate(-42px,0px);
+    -webkit-transform: translate(-42px,0px);
+    transform: translate(-42px,0px);
   }
 
   .container-fluid {
@@ -931,8 +992,16 @@ a.bubble:visited {
   }
 
   .the-nav #actual-nav {
-    background-color: #e9e9e8;
     padding: 20px 20px 40px;
+  }
+
+  .the-nav {
+    z-index:100;
+  }
+
+  .the-nav #side-nav {
+    background-color: #e9e9e8;
+
     margin-top: 72px;
     position: relative;
     -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.65);
@@ -954,10 +1023,13 @@ a.bubble:visited {
     -moz-box-shadow: none;
     box-shadow: none;
 
-    width: 120px;
-    height: 120px;
-    border-radius: 60px;
+    max-width: 100%;
+
+    min-height: 60px;
+    border-radius: 50%;
     background-size: cover !important;
+
+    width: 100%;
 
     margin: 0 auto;
   }
@@ -973,10 +1045,12 @@ a.bubble:visited {
   .the-nav #actual-nav li a img {
     bottom: -29px;
     position: absolute;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 
-  .the-nav #actual-nav:before {
+  .the-nav #side-nav:before {
     background-image: url('../images/menu-arrow-tip.png');
     background-repeat: no-repeat;
     background-position: center top;
@@ -995,6 +1069,83 @@ a.bubble:visited {
   .video-container, .slideshow-container {
     width: 100%;
     left: 0;
+  }
+
+  .bubbles-wrapper {
+    overflow: hidden;
+    padding-bottom: 26px;
+
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 30px;
+    padding-right:30px;
+  }
+
+  .bubble {
+    -webkit-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    -moz-transition: none;
+    transition: none;
+  }
+
+  .back-to-top {
+
+  }
+
+
+}
+
+@media (min-width: 1000px) {
+
+  #kolabo-container .bubble-1:before {
+    content: " ";
+    background-image: url('../images/kolabo-play-button.png');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:101px;
+    height: 101px;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+
+  #kolabo-container .bubble-1:hover:before {
+    content: none;
+  }
+
+  .bubble:before {
+    content: " ";
+    background-image: url('../images/non-kolabo-play-button.png');
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:84px;
+    height: 84px;
+    margin-left: -42px;
+    margin-top: -42px;
+  }
+
+  .bubble:hover:before, .bubble-5:before, .entered .bubble:before {
+    content: none;
+  }
+
+  .container-wrapper:last-child .container-fluid {
+    height: 724px;
+  }
+
+  .container-wrapper:last-child .container {
+
   }
 
 }

@@ -18,12 +18,12 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: 1kVEDc2avMQ
-  - header: Scenes from Syariah's Village
+  - header: Photos of Syariah's Village
     subhead: See how Syariah's snacks are made
     button: slideshow
     slideshow: slideshow2
 ---
 
-<p>With only an elementary-level education, Syariah has successfully started a business that now employs six people in her village. Through her business, <a href="http://kerupukrumputlaut.com/" target="_blank">Sumber Rizki</a>, Syariah and her team produce and distribute snack crackers made with seaweed as the main ingredient.</p>
+<p>With only an elementary-level education, Syariah has successfully started a business that now employs six people. Through her business, <a href="http://kerupukrumputlaut.com/" target="_blank">Sumber Rizki</a>, Syariah and her team produce and distribute snack crackers made with seaweed as the main ingredient.</p>
 
 <p class="slideshow-only">More of people and sights from Syariah's town.</p>

@@ -26,7 +26,7 @@ function onYouTubeIframeAPIReady() {
       'slideshow/syariah_slide_8.jpg',
       'slideshow/syariah_slide_9.jpg',
       'slideshow/syariah_slide_10.jpg',
-      'slideshow/syariah_slide_11.jpg',
+      //'slideshow/syariah_slide_11.jpg',
       'slideshow/syariah_slide_12.jpg',
       'slideshow/syariah_slide_13.jpg',
       'slideshow/syariah_slide_14.jpg',
@@ -358,9 +358,9 @@ function onYouTubeIframeAPIReady() {
           var img = $('#explore-image');
 
           if (containerID == '#kolabo-container') {
-            img.attr('src', 'images/explore-gray.png');
+            //img.attr('src', 'images/explore-gray.png');
           } else {
-            img.attr('src', 'images/explore.png');
+            //img.attr('src', 'images/explore.png');
           }
 
           return;
@@ -391,6 +391,13 @@ function onYouTubeIframeAPIReady() {
 
         $('.bubble').click(function() {
 
+          if (isMobile()) {
+            var videoID = $(this).attr('data-video');
+            var url = "http://youtu.be/" + videoID;
+            window.open(url);
+            return;
+          }
+
           var parent = '#' + $(this).parents('.container-wrapper').attr('id');
           $('.container-wrapper').not(parent).removeClass('entered').removeClass('slideshow');
           parent = $(parent);
@@ -400,20 +407,22 @@ function onYouTubeIframeAPIReady() {
             parent.addClass('entered');
             destroyVideo();
           }
-
           activateBubble(this, '.active', parent);
         });
 
         //$(window).on('scroll', scrollUpdate);
 
         $('a', '.the-nav').click(function(e) {
+
           e.preventDefault();
           var dis = $(this);
           var href = dis.attr('href');
 
+
           var element = $(href);
+
           if (element) {
-            $('body').animate({
+            $('body,html').animate({
               scrollTop: element.position().top
             })
           }
@@ -430,6 +439,9 @@ function onYouTubeIframeAPIReady() {
 
       function setupMobileSlider() {
         if (!isMobile()) return;
+
+        // Destroy bubble 5
+        $('.bubble-5', '.bubble-slider').parent().remove();
 
         $('body').click(function() {
           $('#side-nav').removeClass('shown');
@@ -448,27 +460,40 @@ function onYouTubeIframeAPIReady() {
             nextText: "",
             animation: "slide",
             slideshow: false,
-            startAt: 3
+            start: constrainSizes,
+            startAt: 1
   //          itemWidth: 270,
             //itemMargin: 0
           });
+
         }
 
       }
 
       var wasMobile = isMobile();
 
+      function constrainSizes() {
+        $.each($('.constrain'), function() {
+          var that = $(this);
+          var width = that.width();
+          that.css('height', width+"px");
+        });
+      }
+
       $(window).resize(function() {
 
         if (!wasMobile) return;
         $('.bubble-slider').addClass('flexslider');
-        var bubbles = $('.bubble');
-        var width = bubbles.css('width');
-        console.log(width);
-        bubbles.css('height', width);
+
+        constrainSizes();
+
       });
 
       setupMobileSlider();
+
+      $('.back-to-top').click(function() {
+        $('html,body').animate({scrollTop: $('#intro-container').offset().top});
+      })
 
   }); //end jquery block
 

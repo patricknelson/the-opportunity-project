@@ -18,7 +18,7 @@ bubbles:
     subhead: See how Syariah's snacks are made
     button: play
     video: iHalRkYze1I
-  - header: Ucup's Weekly Route
+  - header: Ucup's Commute
     subhead: See how Syariah's snacks are made
     button: map
     slideshow: slideshowUcup
