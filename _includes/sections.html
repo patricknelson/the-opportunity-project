@@ -11,9 +11,13 @@
         <ul class="bubbles slides">
             {% for bubble in project.bubbles %}
             {% if bubble.video %}
-            <li><a class="bubble constrain bubble-{{forloop.index}}" data-target="{{project.nicename}}-player" data-video="{{bubble.video}}">
+            <li><a class="bubble constrain bubble-{{forloop.index}}"
+              onclick="ga('send', 'event', 'SI TOP Video', 'click', '{{bubble.header | escape}}');"
+               data-target="{{project.nicename}}-player" data-video="{{bubble.video}}">
             {% else %}
-            <li><a class="bubble constrain bubble-{{forloop.index}}" data-target="#{{project.nicename}}-slideshow" data-slideshow="{{bubble.slideshow}}">
+            <li><a class="bubble constrain bubble-{{forloop.index}}"
+                  onclick="ga('send', 'event', 'SI TOP Special Content', 'click', '{{bubble.header | escape}}');"
+               data-target="#{{project.nicename}}-slideshow" data-slideshow="{{bubble.slideshow}}">
               {% endif %}
             <div class="align">
               <h4>{{bubble.header}}</h4>
@@ -49,7 +53,8 @@
       </div>
       {% if site.sections.size == forloop.index %}
       <footer style="height:60px;">
-          <a href="javascript: void(0);" class="back-to-top">Back to top</a>
+          <a href="javascript: void(0);" class="back-to-top"
+          onclick="ga('send', 'event', 'SI TOP Button', 'click', 'Back to Top');">Back to top</a>
           <p style="text-align: center;" class="visible-xs"><button class="share st_sharethis" st_url="http://www.ebayinc.com/social-innovation/top" st_title="The Opportunity Project" displayText="Share this awesome page"><img src="images/share-button.png" alt="Share"></button></p>
       </footer>
       {% endif %}

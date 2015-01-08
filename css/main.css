@@ -362,7 +362,7 @@ height: 448px;
 
 #kolabo-container .text {
   width: 470px;
-  top: 77px;
+  top: 52px;
   left: 360px;
   color: white;
 }
@@ -394,8 +394,8 @@ width: 110px;
 
 @media (min-width: 1000px) {
   #kolabo-container .container-fluid .container {
-    height: 542px;
-    margin-top: 102px;
+    height: 320px;
+    margin-top: 172px;
   }
 }
 

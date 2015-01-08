@@ -4,9 +4,20 @@
   {% include head.html %}
 
     <body data-spy="scroll" data-target="#side-nav" data-offset="120">
-        
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46878227-2', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
         <div class="the-op">
-            
+
             <div class="the-nav">
                 <nav id="side-nav">
                     {% if site.sections %}
@@ -27,11 +38,11 @@
                     <button class="share" class="st_sharethis" st_url="http://www.ebayinc.com/social-innovation/top" st_title="The Opportunity Project" displayText="Share this awesome page"><img src="images/share-button.png" alt="Share"></button>
                 </nav>
             </div>
-            
+
             {{ content }}
-            
+
         </div>
-        
+
         <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="vendor/flexslider/jquery.flexslider-min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
