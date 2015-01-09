@@ -5,19 +5,19 @@ bubbles:
   - header: The Story of Advaya Jewelry
     subhead: See how Syariah's snacks are made
     button: play
-    video: Y6M9pSlCoP0
+    video: fXR7vwxLlFg
   - header: A Trip to the Jewel Market
     subhead: See how Syariah's snacks are made
     button: play
-    video: sSIe7MOLo20
+    video: Ytkge_WURwQ
   - header: The Art of Silver-smithing
     subhead: See how Syariah's snacks are made
     button: play
-    video: JR4RDxYyk4g
+    video: MWz_CNFg9M8
   - header: Creating New Jobs
     subhead: See how Syariah's snacks are made
     button: play
-    video: iEXU0FHPEW8
+    video: Rb_HkNRIEIc
   - header: Megi's Sketchbook
     subhead: See how Syariah's snacks are made
     button: slideshow

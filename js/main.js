@@ -8,7 +8,10 @@ function onYouTubeIframeAPIReady() {
   jQuery(function($) {
 
   //Insert YouTube API
-
+  $('body').scrollspy({
+    target: "#side-nav",
+    offset: 120
+  });
 
   // Globals
 
@@ -65,7 +68,8 @@ function onYouTubeIframeAPIReady() {
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
-        }
+        },
+        playerVars: {rel: 0}
       });
       }
 
@@ -152,7 +156,7 @@ function onYouTubeIframeAPIReady() {
           li = $('<li></li>');
 
           img = $('<div></div>').addClass('the-image');
-          img.css('background-image', "url('images/" + imgs[x] + "')");
+          img.css('background-image', "url('http://broll.ebayinc.com/TOP/images/" + imgs[x] + "')");
           li.append(img);
           ul.append(li);
 
@@ -434,7 +438,10 @@ function onYouTubeIframeAPIReady() {
       })();
 
       function isMobile() {
-        return $('.visible-xs:visible').length > 0;
+        var xs = $('.visible-xs:visible').length > 0;
+        var sm = $('.visible-sm:visible').length > 0;
+
+        return xs || sm;
       }
 
       function setupMobileSlider() {
@@ -475,7 +482,7 @@ function onYouTubeIframeAPIReady() {
       function constrainSizes() {
         $.each($('.constrain'), function() {
           var that = $(this);
-          var width = that.width();
+          var width = that.width(true);
           that.css('height', width+"px");
         });
       }

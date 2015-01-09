@@ -18,26 +18,7 @@
 
         <div class="the-op">
 
-            <div class="the-nav">
-                <nav id="side-nav">
-                    {% if site.sections %}
-                  <ul id="actual-nav" class="nav nav-pills nav-stacked navbar-side">
-                      <li><a class="explore" href="#intro-container"><label><img id="explore-image" src="images/explore.png" alt="Explore"></label></a></li>
-                      {% for project in site.sections %}
-                      <li>
-                            <a class="{{project.nicename}} constrain" href="#{{project.nicename}}-container">
-                                <div class="align">
-                                <img src="images/{{project.nicename}}-name.png" alt="{{project.name}}">
-                                </div>
-                            </a>
-
-                      </li>
-                      {% endfor %}
-                  </ul>
-                    {% endif %}
-                    <button class="share" class="st_sharethis" st_url="http://www.ebayinc.com/social-innovation/top" st_title="The Opportunity Project" displayText="Share this awesome page"><img src="images/share-button.png" alt="Share"></button>
-                </nav>
-            </div>
+            {% include nav.html %}
 
             {{ content }}
 
