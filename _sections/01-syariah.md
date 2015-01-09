@@ -26,4 +26,4 @@ bubbles:
 
 <p>With only an elementary-level education, Syariah has successfully started a business that now employs six people. Through her business, <a href="http://kerupukrumputlaut.com/" target="_blank">Sumber Rizki</a>, Syariah and her team produce and distribute snack crackers made with seaweed as the main ingredient.</p>
 
-<p class="slideshow-only">More of people and sights from Syariah's town.</p>
+<p class="slideshow-only">More people and sights from Syariah's town.</p>

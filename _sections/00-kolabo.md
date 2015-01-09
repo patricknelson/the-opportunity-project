@@ -3,7 +3,7 @@ nicename: kolabo
 name: Kolabo
 title: "The Story of eBay &amp; Kolabo"
 bubbles:
-  - header: "The Story of the Opportunity Project &amp;&nbsp;Kolabo"
+  - header: "The Story of eBay &amp; Kolabo"
     subhead: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum efficitur massa
     button: play
     video: --x3cZKnyUY

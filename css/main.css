@@ -1137,7 +1137,7 @@ max-width: 25%;
   }
 
   .bubble:hover:before, .bubble-5:before, .entered .bubble:before {
-    content: none;
+    content: none !important;
   }
 
   .container-wrapper:last-child .container-fluid {
@@ -1146,6 +1146,10 @@ max-width: 25%;
 
   .container-wrapper:last-child .container {
 
+  }
+
+  #kolabo-container.entered .container {
+    margin-top: 62px;
   }
 
 }
