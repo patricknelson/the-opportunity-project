@@ -15,7 +15,7 @@ function onYouTubeIframeAPIReady() {
 
   // Globals
 
-  var done = false;
+  var done = true;
   var player;
   var slideshowImages = {
     slideshow2: [
@@ -61,16 +61,19 @@ function onYouTubeIframeAPIReady() {
       function placeVideo(container, videoID) {
         destroyVideo();
 
-      player = new YT.Player(container, {
-        height: '540',
-        width: '870',
-        videoId: videoID,
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        },
-        playerVars: {rel: 0}
-      });
+        player = new YT.Player(container, {
+          height: '540',
+          width: '870',
+          videoId: videoID,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          },
+          playerVars: {rel: 0}
+        });
+
+        return player;
+
       }
 
       function activateBubble(sel, deactivate, section) {
@@ -500,7 +503,37 @@ function onYouTubeIframeAPIReady() {
 
       $('.back-to-top').click(function() {
         $('html,body').animate({scrollTop: $('#intro-container').offset().top});
-      })
+      });
+
+      $('.explore-btn').click(function() {
+        $('html,body').animate({scrollTop: $('.container-fluid:eq(1)').offset().top});
+      });
+
+      $(window).scroll(function() {
+        var y = $(window).scrollTop();
+        // need to add half the window height
+        var yHeight = $(window).height();
+        y = y + (yHeight / 2);
+
+
+        var lastContainer = $('.container-wrapper:last');
+
+        var lastTop = lastContainer.position().top;
+        var height = lastContainer.height();
+
+        var total = lastTop + (height / 2);
+
+        var nav = $('.the-nav');
+
+        if (y >= total) {
+          // Stop it from moving
+          nav.css('top', total + 'px').css('position', 'absolute');
+        } else {
+          nav.css('top', '50%').css('position', 'fixed');
+        }
+
+
+      });
 
   }); //end jquery block
 

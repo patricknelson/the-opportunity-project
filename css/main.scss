@@ -37,6 +37,8 @@ body {
 
   #side-nav .share {
     padding: 0;
+    padding: 5px 0;
+
   }
 
   /* FLEX SLIDER */
@@ -192,6 +194,7 @@ body {
   h1 {
     text-align: center;
     margin-top: 0;
+    margin-bottom: 6px;
   }
 
   .container p {
@@ -211,35 +214,28 @@ body {
   }
 
   .entered .back-to-top,
+  .entered .explore-btn,
   .entered .share {
     display: none;
   }
 
   .the-nav {
     position: fixed;
-    top: 132px;
+
+    top: 50%;
+
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+
     left: 50%;
     margin-left: 450px;
     width: 70px;
     text-align: center;
     z-index: 1;
 
-    -webkit-transition: position 500ms ease-out 0s,
-    display 500ms ease-out 0s,
-    top 500ms ease-out 0s,
-    left 500ms ease-out 0s,
-    margin 500ms ease-out 0s,
-    height 500ms ease-out 0s,
-    width 500ms ease-out 0s;
-    /*-moz-transition: background-color 500ms ease-out 1s;
-    -o-transition: background-color 500ms ease-out 1s;*/
-    transition: position 500ms ease-out 0s,
-    display 500ms ease-out 0s,
-    top 500ms ease-out 0s,
-    left 500ms ease-out 0s,
-    margin 500ms ease-out 0s,
-    height 500ms ease-out 0s,
-    width 500ms ease-out 0s;
   }
 
   .the-nav .nav li > a {
@@ -632,7 +628,7 @@ body {
   }
 
   .text p {
-    margin-top: 15px;
+    margin-top: 0px;
     -webkit-transition: display 0ms ease-out 500ms;
     /*-moz-transition: background-color 500ms ease-out 1s;
     -o-transition: background-color 500ms ease-out 1s;*/
@@ -912,7 +908,7 @@ body {
   #intro-container h1 {
     margin: 0 auto;
     width: 700px;
-    font-size: 82px;
+    font-size: 79px;
     line-height: 1.1;
     font-weight: 100;
   }
@@ -1000,7 +996,8 @@ body {
     margin: 0 auto;
   }
 
-  .back-to-top {
+  .back-to-top,
+  .explore-btn {
     display: block;
     background-image: url('../images/back-to-top.png');
     background-repeat: no-repeat;
@@ -1012,6 +1009,13 @@ body {
     left: 50%;
     margin-left: -19px;
     bottom: 24px;
+  }
+
+  .explore-btn {
+    bottom: auto;
+    height: 47px;
+    background-position: top center;
+    background-image: url('../images/explore-button.png');
   }
 
   #syariah-container .bubble-4 {
