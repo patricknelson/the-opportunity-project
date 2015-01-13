@@ -235,29 +235,34 @@ function onYouTubeIframeAPIReady() {
       }
 
       function bindBubbles() {
-        $('.bubble').click(function() {
 
-          if (isMobile()) {
-            var videoID = $(this).attr('data-video');
-            var url = "//www.youtube.com/embed/" + videoID;
-            var modal = $('#myModal');
+        $.each($('.bubble'), function() {
+          $(this).click(function() {
 
-            $('iframe', modal).attr('src', url);
+            if (isMobile()) {
+              var videoID = $(this).attr('data-video');
+              var url = "http://www.youtube.com/embed/" + videoID;
+              var modal = $('#myModal');
+              $('iframe', modal).attr('src', url);
 
-            modal.modal();
-            return;
-          }
+              window.setTimeout(function() {
+                modal.modal();
+              }, 200);
 
-          var parent = '#' + $(this).parents('.container-wrapper').attr('id');
-          $('.container-wrapper').not(parent).removeClass('entered').removeClass('slideshow');
-          parent = $(parent);
-          if (parent.hasClass('entered')) {
-            //see no evil
-          } else {
-            parent.addClass('entered');
-            destroyVideo();
-          }
-          activateBubble(this, '.active', parent);
+              return;
+            }
+
+            var parent = '#' + $(this).parents('.container-wrapper').attr('id');
+            $('.container-wrapper').not(parent).removeClass('entered').removeClass('slideshow');
+            parent = $(parent);
+            if (parent.hasClass('entered')) {
+              //see no evil
+            } else {
+              parent.addClass('entered');
+              destroyVideo();
+            }
+            activateBubble(this, '.active', parent);
+          });
         });
       }
 
@@ -405,7 +410,8 @@ function onYouTubeIframeAPIReady() {
               animation: "slide",
               slideshow: false,
               start: constrainSizes,
-              startAt: 1
+              startAt: 1,
+              after: bindBubbles
     //          itemWidth: 270,
               //itemMargin: 0
             });
