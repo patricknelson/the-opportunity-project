@@ -191,12 +191,12 @@ function onYouTubeIframeAPIReady() {
         $('.flexslider', ctx).not('.bubbles-wrapper').flexslider({
           controlNav: false,
           prevText: "",
+          useCSS: false,
           nextText: "",
           animation: "slide",
           slideshow: false,
           before: function(slider) {
             var cur = slider.currentSlide;
-            console.log(cur);
             $('.slide-count', '.counter').text(parseInt(cur) + 1)
           },
           startAt: 1
@@ -232,6 +232,33 @@ function onYouTubeIframeAPIReady() {
 
         $('.the-nav').css('top', newYPosition).css('position', 'absolute');
 
+      }
+
+      function bindBubbles() {
+        $('.bubble').click(function() {
+
+          if (isMobile()) {
+            var videoID = $(this).attr('data-video');
+            var url = "//www.youtube.com/embed/" + videoID;
+            var modal = $('#myModal');
+
+            $('iframe', modal).attr('src', url);
+
+            modal.modal();
+            return;
+          }
+
+          var parent = '#' + $(this).parents('.container-wrapper').attr('id');
+          $('.container-wrapper').not(parent).removeClass('entered').removeClass('slideshow');
+          parent = $(parent);
+          if (parent.hasClass('entered')) {
+            //see no evil
+          } else {
+            parent.addClass('entered');
+            destroyVideo();
+          }
+          activateBubble(this, '.active', parent);
+        });
       }
 
       (function() {
@@ -281,26 +308,7 @@ function onYouTubeIframeAPIReady() {
 
         // Bubble on click
 
-        $('.bubble').click(function() {
-
-          if (isMobile()) {
-            var videoID = $(this).attr('data-video');
-            var url = "http://youtu.be/" + videoID;
-            window.open(url);
-            return;
-          }
-
-          var parent = '#' + $(this).parents('.container-wrapper').attr('id');
-          $('.container-wrapper').not(parent).removeClass('entered').removeClass('slideshow');
-          parent = $(parent);
-          if (parent.hasClass('entered')) {
-            //see no evil
-          } else {
-            parent.addClass('entered');
-            destroyVideo();
-          }
-          activateBubble(this, '.active', parent);
-        });
+        bindBubbles();
 
 
         $('a', '.the-nav').click(function(e) {
@@ -309,12 +317,14 @@ function onYouTubeIframeAPIReady() {
           var dis = $(this);
           var href = dis.attr('href');
 
-
           var element = $(href);
+
+          var newScrollTop = element.position().top;
+          if (isMobile()) newScrollTop -= 60;
 
           if (element) {
             bodyElement.animate({
-              scrollTop: element.position().top
+              scrollTop: newScrollTop
             })
           }
         });
@@ -323,47 +333,88 @@ function onYouTubeIframeAPIReady() {
 
       })();
 
-      function isMobile() {
-        var xs = $('.visible-xs:visible').length > 0;
-        var sm = $('.visible-sm:visible').length > 0;
+      var wasMobile = false;
 
-        return xs || sm;
+      function checkMobile() {
+        var xs = $('.visible-xs:visible').length > 0;
+        if (!xs) return $('.visible-sm:visible').length > 0;
+        else return true;
+      }
+
+      function isMobile() {
+        return wasMobile;
+      }
+
+      function deviceChange() {
+
+        var returnValue = checkMobile(); // This gives us the actual value
+
+        if (returnValue != wasMobile) {
+          wasMobile = returnValue;
+          return true;
+        }
+        return false; // isMobile will return checkMobile the first time, then only true if there was a change
+        // If
+      }
+
+      wasMobile = isMobile(); // Store wasMobile in here for the first time to make it itself
+
+      var sliders = [];
+
+      function destroyMobileSliders() {
+        $('body').off('click.mobile');
+        $('.the-nav').off('click.mobile');
+        unconstrainSizes();
+        if ($('.bubbles-wrapper')) {
+          $.each( $('.bubbles-wrapper.bubble-slider'), function(i) {
+            var slider = $(this);
+            slider.removeClass('flexslider'); // in case it has it
+            $(this).replaceWith(sliders[i]);
+          });
+          bindBubbles();
+        }
       }
 
       function setupMobileSlider() {
         if (!isMobile()) return;
 
-        // Destroy bubble 5
-        $('.bubble-5', '.bubble-slider').parent().remove();
 
-        $('body').click(function() {
+        $('body').on('click.mobile', function() {
           $('#side-nav').removeClass('shown');
         });
 
-        $('.the-nav').click(function(e) {
+        $('.the-nav').on('click.mobile', function(e) {
           e.stopPropagation();
+
           $('#side-nav').toggleClass('shown');
+          constrainSizes();
         });
 
         if ($('.bubbles-wrapper')) {
-          $('.bubbles-wrapper.bubble-slider').flexslider({
-            controlNav: false,
-            selector: '.bubbles li',
-            prevText: "",
-            nextText: "",
-            animation: "slide",
-            slideshow: false,
-            start: constrainSizes,
-            startAt: 1
-  //          itemWidth: 270,
-            //itemMargin: 0
+          sliders = [];
+          $('.bubbles-wrapper.bubble-slider').each(function() {
+            var element = $(this);
+            sliders.push(element.clone());
+            // Destroy bubble 5
+            $('.bubble-5', element).parent().remove();
+            element.addClass('flexslider').flexslider({
+              controlNav: false,
+              selector: '.bubbles li',
+              prevText: "",
+              nextText: "",
+              animation: "slide",
+              slideshow: false,
+              start: constrainSizes,
+              startAt: 1
+    //          itemWidth: 270,
+              //itemMargin: 0
+            });
+
           });
 
         }
 
       }
-
-      var wasMobile = isMobile();
 
       function constrainSizes() {
         $.each($('.constrain'), function() {
@@ -373,19 +424,32 @@ function onYouTubeIframeAPIReady() {
           that.css('height', width+"px");
         });
       }
+      function unconstrainSizes() {
+        $.each($('.constrain'), function() {
+          var that = $(this);
+
+          that.css('height', "");
+        });
+      }
 
       function mobileSetup() {
-        if (!wasMobile) return;
-        $('.bubble-slider').addClass('flexslider');
+        if (isMobile())
+          constrainSizes();
 
-        constrainSizes();
+        if (deviceChange()) {
+          if (isMobile()) {
+            setupMobileSlider(); // Includes a constrain sizes
+          } else {
+            destroyMobileSliders();
+          }
+        }
+
       }
 
       $(window).resize(mobileSetup);
+      $(window).on("orientationchange", mobileSetup);
 
       mobileSetup();
-      setupMobileSlider();
-
 
 
       $('.back-to-top').click(function() {

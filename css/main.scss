@@ -33,6 +33,12 @@ body {
   padding: 0px;
 }
 
+@media (max-width: 991px) and (min-width: 768px) {
+  header {
+    height: 60px !important;
+  }
+}
+
 #main .the-op {
 
   #side-nav .share {
@@ -237,9 +243,18 @@ body {
     transform: translateY(-50%);
 
     }
-    left: 50%;
-    margin-left: 450px;
+    margin-left: 0;
+    left: auto;
+    right: 15px;
+
+    @media (min-width: 1200px) {
+      left: 50%;
+      right: auto;
+      margin-left: 450px;
+    }
+
     width: 70px;
+
     text-align: center;
 
     z-index: 2;
@@ -540,7 +555,9 @@ body {
   #kolabo-container .text p {
     margin-top: 35px;
     /*text-align: left;*/
-    padding-left: 19px;
+    @media (min-width: 922px) {
+      padding-left: 19px;
+    }
   }
 
   .container-fluid .container {
@@ -1037,7 +1054,13 @@ body {
 
   @media (max-width: 991px) {
 
+    .bubble {
+      background-position: center center !important;
+      background-size: cover !important;
+      overflow: hidden;
+    }
     footer {
+      height: 150px !important;
       height: auto;
       padding-bottom: 40px;
       width: 100%;
@@ -1149,7 +1172,7 @@ body {
 
     .the-nav {
       z-index: 20;
-      top: 60px;
+      top: 60px !important;
       width: 80%;
       height: 60px;
       margin: 0;

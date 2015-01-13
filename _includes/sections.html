@@ -22,7 +22,7 @@
             <div class="align">
               <h4>{{bubble.header}}</h4>
               <!--p>{{bubble.subhead}}</p-->
-              <p><img src="{{ 'images/' | append: bubble.button | prepend: site.baseURL | prepend: site.assets }}.png" alt="{{bubble.button}}" class="{{bubble.button}} hidden-xs"></p>
+              <p><img src="{{ 'images/' | append: bubble.button | prepend: site.baseURL | prepend: site.assets }}.png" alt="{{bubble.button}}" class="{{bubble.button}} hidden-xs hidden-sm"></p>
               <p class="no-margin"><img src="{{ 'images/mobile-play.png' | prepend: site.baseURL | prepend: site.assets }}" alt="{{bubble.button}}" class="play-button {{bubble.button}} visible-xs"></p>
             </div>
           </a></li>
@@ -55,7 +55,8 @@
       <footer style="height:60px;">
           <a href="javascript: void(0);" class="back-to-top"
           onclick="ga('send', 'event', 'SI TOP Button', 'click', 'Back to Top');">Back to top</a>
-          <p style="text-align: center;" class="visible-xs"><button class="share st_sharethis" st_url="http://www.ebayinc.com/social-innovation/top" st_title="The Opportunity Project" displayText="Share this awesome page"><img src="{{ 'images/share-button.png' | prepend: site.baseURL | prepend: site.assets }}" alt="Share"></button></p>
+          <p style="text-align: center;" class="visible-xs">
+            <button class="share st_sharethis_custom" st_url="{{site.url}}" st_title="{{site.shareTitle}}" displayText="{{site.shareText}}"><img src="{{ 'images/share-button.png' | prepend: site.baseURL | prepend: site.assets }}" alt="Share"></button></p>
       </footer>
       {% endif %}
 

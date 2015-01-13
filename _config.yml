@@ -2,8 +2,9 @@
 title: Your awesome title
 email: your-email@domain.com
 description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-baseurl: ""
-url: "http://yourdomain.com"
+url: "http://www.ebayinc.com/social-innovation/the-opportunity-project"
+shareTitle: "Creating a World Without Boundaries"
+shareText: "Explore this interactive video experience about eBay Foundation’s partnership with Kolabo, a social enterprise that’s helping entrepreneurs in Indonesia bring their businesses online for the first time"
 assets: "http://broll.ebayinc.com/"
 baseURL: "TOP/"
 
