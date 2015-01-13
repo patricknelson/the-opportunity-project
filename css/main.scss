@@ -69,7 +69,7 @@ body {
   /* FlexSlider Necessary Styles
   *********************************/
   .flexslider {margin: 0; padding: 0;}
-  .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+  .flexslider .slides > li {display: none;-webkit-backface-visibility: visible;} /* Hide the slides before the JS is loaded. Avoids image jumping */
   .flexslider .slides img {width: 100%; display: block;}
   .flex-pauseplay span {text-transform: capitalize;}
 
@@ -86,7 +86,7 @@ body {
   /* FlexSlider Default Theme
   *********************************/
   .flexslider { margin: 0 0 60px; background: #fff; border: 4px solid #fff; position: relative; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2); -o-box-shadow: 0 1px 4px rgba(0,0,0,.2); box-shadow: 0 1px 4px rgba(0,0,0,.2); zoom: 1; }
-  .flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+  .flex-viewport { position:relative; z-index:3; max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
   .loading .flex-viewport { max-height: 300px; }
   .flexslider .slides { zoom: 1; }
   .carousel li { margin-right: 5px; }
@@ -183,8 +183,12 @@ body {
   }
 
   .container-fluid.first {
-    padding: 132px 0;
+    padding: 107px 0;
     background-image: url('../images/intro-bg.jpg');
+  }
+
+  .container-fluid.first p {
+    width: 800px;
   }
 
   .container-fluid .container {
@@ -220,21 +224,26 @@ body {
   }
 
   .the-nav {
+
     position: fixed;
 
     top: 50%;
 
+    @media (min-width: 992px) {
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 
+    }
     left: 50%;
     margin-left: 450px;
     width: 70px;
     text-align: center;
-    z-index: 1;
+
+    z-index: 2;
+    -webkit-backface-visibility: hidden;
 
   }
 
@@ -1143,6 +1152,8 @@ body {
       top: 60px;
       width: 80%;
       height: 60px;
+      margin: 0;
+      padding: 0;
       overflow: visible;
       margin-left: 0;
       left: 10%;

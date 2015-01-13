@@ -7,13 +7,18 @@ function onYouTubeIframeAPIReady() {
 
   jQuery(function($) {
 
-  //Insert YouTube API
-  $('body').scrollspy({
-    target: "#side-nav",
-    offset: 120
-  });
+    var bodyElement;
 
-  // Globals
+    if($.browser.safari) bodyElement = $("body")
+    else bodyElement = $("html,body")
+
+    //Insert YouTube API
+    $('body').scrollspy({
+      target: "#side-nav",
+      offset: 120
+    });
+
+    // Globals
 
   var done = true;
   var player;
@@ -200,127 +205,7 @@ function onYouTubeIframeAPIReady() {
 
       // Calculates absolute screen middle
 
-      function calculateScreenMiddle(scrollTop) {
-
-        var scrollTop = scrollTop || $("body").scrollTop();
-        var windowYSize = $(window).height();
-
-        var windowHalfSize = windowYSize / 2;
-
-        var actualMiddle = scrollTop + windowHalfSize;
-
-        /*
-        This tests it by using a red line to see where the breakpoint would be
-        var hr = $('<div></div>');
-        hr.css('height', '10px').css('width', '100%').css('background-color', 'red').attr('id', 'fake');
-        hr.css('position', 'absolute').css('top', actualMiddle + "px");
-        $('#fake').remove();
-
-        $('body').append(hr); /**/
-
-        return actualMiddle;
-
-      }
-
-      // Get section element middles
-
-      function getSectionMiddles(recalc) {
-        if (!recalc && !$.isEmptyObject(sectionMiddles)) return sectionMiddles;
-        var middles = {};
-
-        if (middles.length > 0) return middles;
-
-        $('.fake').remove();
-        $('section.measured').each(function(index) {
-          //get its top position, width, and then do the magic
-          var dis = $(this);
-          var id = dis.attr('id');
-
-          var sectionYSize = dis.outerHeight();
-          var topPosition = dis.position().top;
-
-          var halfYSize = sectionYSize / 2;
-          var actualMiddle = topPosition + halfYSize
-
-          /*
-          This tests it by using a red line to see where the breakpoint would be
-          var hr = $('<div></div>');
-          hr.css('height', '10px').css('width', '100%').css('background-color', 'red').addClass('fake');
-          hr.css('position', 'absolute').css('top', actualMiddle + "px");
-
-          $('body').append(hr); /**/
-
-          middles[id] = actualMiddle;
-
-        });
-
-        sectionMiddles = middles;
-        return middles;
-
-      }
-
-      function getClosestElementToPosition(position, down) {
-
-        // We want closest downward I guess? Depends
-        var middles = getSectionMiddles();
-
-        // Should be sorted first unfortunately
-
-        var sorted = [];
-
-        for (var x in middles) {
-          // x is the element ID
-          sorted.push([x, middles[x]]);
-        }
-
-        if (down) {
-          sorted = sorted.sort(function(a, b) {return a[1] - b[1]})
-
-          // Now they're sorted properly
-          var elem = sorted[0][0];
-
-          for (var x in sorted) {
-            var thisElement = sorted[x];
-            var key = sorted[x][0];
-            var value = sorted[x][1];
-
-            if (position > value) elem = key;
-
-          }
-
-        } else {
-          sorted = sorted.sort(function(a, b) {return b[1] - a[1]})
-
-          // Now they're sorted properly
-          var elem = sorted[0][0];
-
-          for (var x in sorted) {
-            var thisElement = sorted[x];
-            var key = sorted[x][0];
-            var value = sorted[x][1];
-
-            if (position < value) elem = key;
-
-          }
-        }
-
-        return elem;
-
-      }
-
       var lastScrollTop = 0;
-
-      function scrollUpdate(e) {
-        // Big problem is minor changes due to mouse wheel or something.
-        // If we want to detect it better we need to make a tolerance or something
-        var dis = $(this);
-        var st = dis.scrollTop();
-        var element = getClosestElementToPosition(calculateScreenMiddle(st), (st > lastScrollTop));
-        activateNavItem(element);
-        lastScrollTop = st;
-
-        // Okay we have teh element. We need to activate it
-      }
 
       function activateNavItem(points) {
 
@@ -417,7 +302,6 @@ function onYouTubeIframeAPIReady() {
           activateBubble(this, '.active', parent);
         });
 
-        //$(window).on('scroll', scrollUpdate);
 
         $('a', '.the-nav').click(function(e) {
 
@@ -429,13 +313,12 @@ function onYouTubeIframeAPIReady() {
           var element = $(href);
 
           if (element) {
-            $('body,html').animate({
+            bodyElement.animate({
               scrollTop: element.position().top
             })
           }
         });
 
-        //$(window).on('resize', getSectionMiddles);
 
 
       })();
@@ -485,36 +368,40 @@ function onYouTubeIframeAPIReady() {
       function constrainSizes() {
         $.each($('.constrain'), function() {
           var that = $(this);
-          var width = that.width(true);
+
+          var width = that.width();
           that.css('height', width+"px");
         });
       }
 
-      $(window).resize(function() {
-
+      function mobileSetup() {
         if (!wasMobile) return;
         $('.bubble-slider').addClass('flexslider');
 
         constrainSizes();
+      }
 
-      });
+      $(window).resize(mobileSetup);
 
+      mobileSetup();
       setupMobileSlider();
 
+
+
       $('.back-to-top').click(function() {
-        $('html,body').animate({scrollTop: $('#intro-container').offset().top});
+        bodyElement.animate({scrollTop: $('#intro-container').offset().top});
       });
 
       $('.explore-btn').click(function() {
-        $('html,body').animate({scrollTop: $('.container-fluid:eq(1)').offset().top});
+        bodyElement.animate({scrollTop: $('.container-fluid:eq(1)').offset().top});
       });
 
       $(window).scroll(function() {
+        if (wasMobile) return;
         var y = $(window).scrollTop();
         // need to add half the window height
         var yHeight = $(window).height();
         y = y + (yHeight / 2);
-
 
         var lastContainer = $('.container-wrapper:last');
 
