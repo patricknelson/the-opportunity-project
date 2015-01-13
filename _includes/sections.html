@@ -23,7 +23,7 @@
               <h4>{{bubble.header}}</h4>
               <!--p>{{bubble.subhead}}</p-->
               <p><img src="{{ 'images/' | append: bubble.button | prepend: site.baseURL | prepend: site.assets }}.png" alt="{{bubble.button}}" class="{{bubble.button}} hidden-xs hidden-sm"></p>
-              <p class="no-margin"><img src="{{ 'images/mobile-play.png' | prepend: site.baseURL | prepend: site.assets }}" alt="{{bubble.button}}" class="play-button {{bubble.button}} visible-xs"></p>
+              <p class="no-margin"><img src="{{ 'images/mobile-play.png' | prepend: site.baseURL | prepend: site.assets }}" alt="{{bubble.button}}" class="play-button {{bubble.button}} visible-xs visible-sm"></p>
             </div>
           </a></li>
             {% endfor %}
