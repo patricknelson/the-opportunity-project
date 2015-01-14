@@ -63,12 +63,12 @@ function onYouTubeIframeAPIReady() {
         }
       }
 
-      function placeVideo(container, videoID) {
+      function placeVideo(container, videoID, params) {
         destroyVideo();
-
+        if (!params) params = {};
         player = new YT.Player(container, {
-          height: '540',
-          width: '870',
+          height: params.height || '540',
+          width: params.width || '870',
           videoId: videoID,
           events: {
             'onReady': onPlayerReady,
@@ -113,9 +113,41 @@ function onYouTubeIframeAPIReady() {
 
       }
 
+      var UAMobile = false;
+      function UAMobileTrue() {
+
+        if (UAMobile) {
+          if (UAMobile == 1) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+
+        if(! navigator.userAgent.match(/Android/i) &&
+          ! navigator.userAgent.match(/webOS/i) &&
+          ! navigator.userAgent.match(/iPhone/i) &&
+          ! navigator.userAgent.match(/iPod/i) &&
+          ! navigator.userAgent.match(/iPad/i) &&
+          ! navigator.userAgent.match(/Blackberry/i) &&
+          ! navigator.userAgent.match(/iPad/i) )
+        {
+
+          UAMobile = 1;
+          return false;
+
+        } else {
+
+          // do tablet stuff
+          UAMobile = 2;
+          return true;
+
+        }
+      }
 
       function onPlayerReady(evt) {
-        evt.target.playVideo();
+        if (!UAMobileTrue())
+          evt.target.playVideo();
       }
 
       function onPlayerStateChange(evt) {
@@ -241,13 +273,12 @@ function onYouTubeIframeAPIReady() {
 
             if (isMobile()) {
               var videoID = $(this).attr('data-video');
-              var url = "http://www.youtube.com/embed/" + videoID;
-              var modal = $('#myModal');
-              $('iframe', modal).attr('src', url);
+              var container = 'modal-video';
+              var containerJquery = $('#' + container);
+              containerJquery.html('');
 
-              window.setTimeout(function() {
-                modal.modal();
-              }, 200);
+              placeVideo(container, videoID);
+              $('#myModal').modal();
 
               return;
             }
@@ -439,6 +470,7 @@ function onYouTubeIframeAPIReady() {
       }
 
       function mobileSetup() {
+        console.log('resize or orientation change');
         if (isMobile())
           constrainSizes();
 
@@ -453,10 +485,31 @@ function onYouTubeIframeAPIReady() {
       }
 
       $(window).resize(mobileSetup);
-      $(window).on("orientationchange", mobileSetup);
+      $(window).on("orientationchange", function(e) {
+
+        if (window.orientation && navigator.userAgent.match(/iPad/i)) {
+          if (window.orientation == 90 || window.orientation == 270 || window.orientation == -90) {
+              // Fade body out
+              $('#wrapper').fadeOut(500, function() {
+                window.location.reload();
+              });
+          }
+        }
+        console.log("Orientation change");
+        mobileSetup();
+      });
 
       mobileSetup();
 
+      $('#myModal').on('hidden.bs.modal', function() {
+
+        var containerJquery = $('#modal-video');
+
+        containerJquery.after($('<div></div>').attr('id', containerJquery.attr('id')))
+
+        containerJquery.remove();
+
+      });
 
       $('.back-to-top').click(function() {
         bodyElement.animate({scrollTop: $('#intro-container').offset().top});
