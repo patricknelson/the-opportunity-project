@@ -365,7 +365,26 @@ function onYouTubeIframeAPIReady() {
           }
         });
 
+        if (window.location.hash) {
+          var hash = window.location.hash;
+          var re = new RegExp("^#video-");
+          if (hash.match(re)) {
+            video = hash.replace(re, '');
 
+            var a = $('.bubble[data-video="'+video+'"]');
+            var top = a.parents('section').position().top;
+
+            if (top)
+              bodyElement.animate({
+                scrollTop: top
+              });
+
+            window.setTimeout(function() {
+              a.click();
+
+            }, 1000);
+          }
+        }
 
       })();
 

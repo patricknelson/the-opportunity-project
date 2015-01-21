@@ -12,10 +12,12 @@
             {% for bubble in project.bubbles %}
             {% if bubble.video %}
             <li><a class="bubble constrain bubble-{{forloop.index}}"
+              href="#video-{{bubble.video | escape}}"
               onclick="ga('send', 'event', 'SI TOP Video', 'click', '{{bubble.header | escape}}');"
                data-target="{{project.nicename}}-player" data-video="{{bubble.video}}">
             {% else %}
             <li><a class="bubble constrain bubble-{{forloop.index}}"
+                  href="#video-{{bubble.video | escape}}"
                   onclick="ga('send', 'event', 'SI TOP Special Content', 'click', '{{bubble.header | escape}}');"
                data-target="#{{project.nicename}}-slideshow" data-slideshow="{{bubble.slideshow}}">
               {% endif %}
@@ -56,7 +58,7 @@
           <a href="javascript: void(0);" class="back-to-top"
           onclick="ga('send', 'event', 'SI TOP Button', 'click', 'Back to Top');">Back to top</a>
           <p style="text-align: center;" class="visible-xs visible-sm">
-            <button class="share st_sharethis_custom" st_url="{{site.url}}" st_title="{{site.shareTitle}}" displayText="{{site.shareText}}"><img src="{{ 'images/share-button.png' | prepend: site.baseURL | prepend: site.assets }}" alt="Share"></button></p>
+            <a class="share st_sharethis_custom" st_url="{{site.url}}" st_title="{{site.shareTitle}}" displayText="{{site.shareText}}"><img src="{{ 'images/share-button.png' | prepend: site.baseURL | prepend: site.assets }}" alt="Share"></a></p>
       </footer>
       {% endif %}
 
