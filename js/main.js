@@ -9,7 +9,7 @@ function onYouTubeIframeAPIReady() {
 
     var bodyElement;
 
-    if($.browser.safari) bodyElement = $("body")
+    if(false) bodyElement = $("body")
     else bodyElement = $("html,body")
 
     //Insert YouTube API
