@@ -142,7 +142,11 @@ body {
   }
 
   .container {
-    width: 1050px;
+    
+    width: 100%;
+    @media screen and (min-width: 860px) {
+      width: 1050px;
+    }
   }
 
   .flex-direction-nav {
@@ -1176,7 +1180,7 @@ body {
 
     .the-nav {
       z-index: 20;
-      top: 60px !important;
+      top: 0px !important;
       width: 80%;
       height: 60px;
       margin: 0;
