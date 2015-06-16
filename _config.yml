@@ -5,8 +5,9 @@ description: "Write an awesome description for your new site here. You can edit 
 url: "http://www.ebayinc.com/social-innovation/the-opportunity-project"
 shareTitle: "Creating a World Without Boundaries"
 shareText: "Explore this interactive video experience about eBay Foundation’s partnership with Kolabo, a social enterprise that’s helping entrepreneurs in Indonesia bring their businesses online for the first time"
-assets: "http://broll.ebayinc.com/"
-baseURL: "TOP/"
+#assets: "http://broll.ebayinc.com/"
+assets: ""
+baseURL: "" # "TOP/"
 
 # Build settings
 markdown: kramdown
