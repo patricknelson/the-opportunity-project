@@ -57,7 +57,8 @@ function onYouTubeIframeAPIReady() {
   // YouTube Functions
 
       function destroyVideo() {
-        if (player) {
+        // && typeof(YT.Player) === 'object'
+        if (player ) {
           player.destroy();
           player = null;
         }
@@ -66,6 +67,7 @@ function onYouTubeIframeAPIReady() {
       function placeVideo(container, videoID, params) {
         destroyVideo();
         if (!params) params = {};
+        console.log(container);
         player = new YT.Player(container, {
           height: params.height || '540',
           width: params.width || '870',
