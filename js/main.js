@@ -13,11 +13,8 @@ function onYouTubeIframeAPIReady() {
     else bodyElement = $("html,body")
 
     //Insert YouTube API
-    $('body').scrollspy({
-      target: "#side-nav",
-      offset: 120
-    });
-
+    
+    var pymChild = pymChild || null;
     // Globals
 
   var done = true;
@@ -361,9 +358,13 @@ function onYouTubeIframeAPIReady() {
           if (isMobile()) newScrollTop -= 60;
 
           if (element) {
-            bodyElement.animate({
-              scrollTop: newScrollTop
-            })
+            if (!!pymChild || false) {
+              pymChild.sendMessage('scrollToPosition', newScrollTop);
+            } else {
+              bodyElement.animate({
+                scrollTop: newScrollTop
+              });
+            }
           }
         });
 
@@ -533,11 +534,22 @@ function onYouTubeIframeAPIReady() {
       });
 
       $('.back-to-top').click(function() {
-        bodyElement.animate({scrollTop: $('#intro-container').offset().top});
+        var newOffset = $('#intro-container').offset().top;
+        if (!!pymChild || false) {
+          pymChild.sendMessage('scrollToPosition', newOffset);
+        } else {
+          bodyElement.animate({scrollTop: newOffset});
+        }
       });
 
       $('.explore-btn').click(function() {
-        bodyElement.animate({scrollTop: $('.container-fluid:eq(1)').offset().top});
+        var newOffset = $('.container-fluid:eq(1)').offset().top;
+        if (!!pymChild || false) {
+          pymChild.sendMessage('scrollToPosition', newOffset);
+        } else {
+          bodyElement.animate({scrollTop: newOffset});
+        }
+        
       });
 
       $(window).scroll(function() {
@@ -555,7 +567,7 @@ function onYouTubeIframeAPIReady() {
         var total = lastTop + (height / 2);
 
         var nav = $('.the-nav');
-
+        return;
         if (y >= total) {
           // Stop it from moving
           nav.css('top', total + 'px').css('position', 'absolute');
