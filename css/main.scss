@@ -235,10 +235,23 @@ body {
   .entered .share {
     display: none;
   }
+  .container-wrapper {
+    position: relative;
+  }
+  
+  #kolabo-container .the-nav .kolabo,
+  #syariah-container .the-nav .syariah,
+  #ucup-container .the-nav .ucup,
+  #megi-container .the-nav .megi {
+    background-image: none;
+    text-indent: 0px;
+    background-color: white;
+    color: #0064d2;
+  }
 
   .the-nav {
 
-    position: fixed;
+    position: absolute;
 
     top: 50%;
 
