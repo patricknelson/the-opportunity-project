@@ -281,6 +281,10 @@ function onYouTubeIframeAPIReady() {
 
               placeVideo(container, videoID);
               $('#myModal').modal();
+              
+              if (!!pymChild || false) {
+                pymChild.sendMessage('scrollToPosition', 0);
+              }
 
               return;
             }
