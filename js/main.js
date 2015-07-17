@@ -14,9 +14,7 @@ function onYouTubeIframeAPIReady() {
 
     //Insert YouTube API
     
-    if (typeof(window.pymChild) === 'undefined') {
-      var pymChild = window.pymChild || null;
-    }
+    var pymChild = window.pymChild || null;
 
     // Globals
 
